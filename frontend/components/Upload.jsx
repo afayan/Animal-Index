@@ -7,6 +7,7 @@ function Upload() {
   const [diet, setDiet] = useState("");
   const [desc, setDesc] = useState("");
   const [blood, setBlood] = useState("");
+  const [image, setFile] = useState(null)
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -17,10 +18,13 @@ function Upload() {
       type:type,
       diet:diet,
       desc:desc,
-      blood:blood
+      blood:blood,
+      image:image.name
     };
 
     console.log(d);
+    console.log(image.name);
+    // image.name = Date.now() + '-' + Math.round(Math.random() * 1E9) + image.name
 
     fetch("/api/getAnimals", 
       {
@@ -35,6 +39,11 @@ function Upload() {
       }).then((data)=>{
         console.log(data);
       })
+
+    const formdata = new FormData()
+    formdata.append("uploadImage", image)
+
+    fetch("/api/uploadImage", {method:"POST", body: formdata})
   }
 
   return (
@@ -92,9 +101,9 @@ function Upload() {
         ></textarea>
 
         <select
-          name="blood"
+          name=""
           id=""
-         
+          placeholder="Diet"
           onChange={(e) => setBlood((c) => e.target.value)}
         >
           <option value="">Blood temperature</option>
@@ -102,7 +111,7 @@ function Upload() {
           <option value="Cold">Cold</option>
         </select>
 
-        <input type="file" name="uploadImage" id="image" />
+        <input type="file" name="uploadImage" id="image" onChange={(e)=>setFile(e.target.files[0])}/>
         <button type="submit" onClick={(e) => handleSubmit(e)}>
           Submit
         </button>

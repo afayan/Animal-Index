@@ -1,13 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Search from "./Search";
+import Carousel from "./Carousel";
+import Topbar from "./Topbar";
 
 function Home() {
   return (
     <div>
-      <h1>Home</h1>
-        <Search/>
-
+        <Topbar/>
+        <Carousel/>
 
       <h2 className="label">Type</h2>
 
@@ -26,6 +27,10 @@ function Home() {
 
         <Link to={"/animals/:reptiles"} className= "link">
         <CategoryCard name={"Reptiles"} image={"/reptile.jpg"} />
+        </Link>
+
+        <Link to={"/animals/:insect"} className= "link">
+          <CategoryCard name={"Insects"} image={"/insect.jpg"} />
         </Link>
 
       </div>
