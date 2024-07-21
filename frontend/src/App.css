@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-body{
-    background-color: rgb(37, 37, 37);
-    margin: 0px;
+body {
+  background-color: rgb(37, 37, 37);
+  margin: 0px;
 }
 
-.topbar{
+.topbar {
   position: absolute;
   display: flex;
   flex-direction: row;
@@ -13,40 +13,101 @@ body{
   width: 100%;
   justify-content: flex-end;
 }
+* {
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
 
-.topbuttons{
+.uploadForm {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 900px;
+  opacity: 80%;
+  background-color: rgb(52, 52, 52);
+}
+
+.uploadForm input,
+.uploadForm select,
+.uploadForm textarea {
+  outline: none;
+  border: none;
+  margin-bottom: 10px;
+  font-weight: 300;
+  font-size: 18px;
+  color: white;
+  background-color: inherit;
+}
+
+option {
+  color: black;
+  background-color: white;
+}
+
+.uploads {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  width: 100%;
+  top: 80px;
+}
+
+.uploadbg {
+  width: 100%;
+  height: 140%;
+  object-fit: cover;
+  position: absolute;
+  margin-top: -90px;
+  overflow-y: hidden;
+  z-index: -9;
+}
+
+.aibox {
+  color: wheat;
+  background-color: black;
+  width: 900px;
+  overflow-y: scroll;
+  padding: 30px;
+  opacity: 80%;
+}
+
+.aichatbox {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.topbuttons {
   text-decoration: none;
   font-size: 1.4rem;
   color: rgb(120, 107, 73);
   margin: 20px;
 }
 
-.link, .categoryCard{
+.link {
   background-color: bisque;
   width: 100%;
-
   height: 200px;
   position: relative;
-  background-size: cover;
   border-radius: 10px;
+  margin: 10px;
 }
 
-.link{
-    margin: 10px;
+.categoryCard {
+  width: inherit;
+  height: inherit;
+  background-size: cover;
+  position: inherit;
+  background-size: 110%;
+  transition: all 1s ease-out;
 }
 
-*{
-  font-family: "Poppins", sans-serif;
-  font-weight: 200;
-  font-style: normal;
+.categoryCard:hover {
+  background-size: 120%;
 }
 
-.uploadForm{
-    display: flex;
-    flex-direction: column;
-    background-color:rgb(124, 106, 60);
-    padding: 20px;
-    width: 600px;
+.categoryCard:hover .categoryCard h3 {
+  font-size: 20px;
 }
 
 .categoryCard img {
@@ -61,9 +122,10 @@ body{
   color: rgb(255, 255, 255);
 }
 
-h1, .label{
-    color: rgb(124, 115, 101);
-    margin-left: 20px;
+h1,
+.label {
+  color: rgb(124, 115, 101);
+  margin-left: 20px;
 }
 
 .cardContainer {
@@ -72,13 +134,13 @@ h1, .label{
   width: 100%;
 }
 
-.carousel{
+.carousel {
   height: 850px;
   width: 100%;
   object-fit: cover;
 }
 
-.carText{
+.carText {
   position: absolute;
   font-size: 5rem;
   animation: showText 0.8s ease-out 0s 1 forwards;
@@ -90,14 +152,268 @@ h1, .label{
     transform: translate(80px, 400px);
   }
 
-  to{
+  to {
     opacity: 1;
-    transform: translate(80px , 300px);
-
+    transform: translate(80px, 300px);
   }
 }
 
-.label{
-    color: aliceblue;
-    font-size: 2rem;
+.label {
+  color: aliceblue;
+  font-size: 2rem;
+}
+
+.animalCard {
+  position: relative;
+  color: rgb(148, 148, 148);
+  width: 300px;
+  height: 300px;
+  padding: 6px;
+  margin: 10px;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  background-size: cover;
+  overflow: hidden;
+}
+.animalCard h3 {
+  margin-left: 20px;
+  z-index: 90;
+}
+
+.cardTextBox {
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  opacity: 80%;
+  background-color: rgb(37, 37, 37);
+}
+
+.animalImage {
+  height: inherit;
+  width: inherit;
+  margin: 0px;
+  padding: 0px;
+  position: absolute;
+  z-index: -1;
+  filter: grayscale(70%);
+  transition: all 0.2s ease-in;
+  object-fit: cover;
+}
+
+.animalImage:hover {
+  filter: grayscale(0%);
+}
+
+.cardRow {
+  position: absolute;
+  top: 160px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.searchBox {
+  background-color: rgb(23, 23, 23);
+  position: absolute;
+  width: 100%;
+  height: 60px;
+  top: 80px;
+  margin: 0px;
+  display: flex;
+}
+
+.searchBox input {
+  font-size: 20px;
+  padding-left: 80px;
+  height: 97%;
+  color: white;
+  background-color: rgb(23, 23, 23);
+  align-self: center;
+  width: 60%;
+  align-self: flex-start;
+  border: none;
+}
+
+.searchBox input:focus {
+  outline: none;
+}
+
+.animalProfile {
+  position: relative;
+  top: 100px;
+}
+
+.profileImage {
+  position: absolute;
+  z-index: -1;
+  top: 0px;
+  width: 100%;
+  filter: grayscale(100%);
+}
+
+.profileImageSmall {
+  position: absolute;
+  right: 0px;
+  width: 40%;
+  top: 100px;
+  border: solid 10px rgb(124, 115, 101);
+  margin: 10px;
+  z-index: 90px;
+  animation: moveImage 1s ease-out 0s 1 forwards ;
+
+}
+
+.rightcol{
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes moveImage {
+  from{
+    opacity: 0%;
+    top: 200px;
+  }
+
+  to{
+    opacity: 100%;
+    top: 100px;
+  }
+}
+
+.profileDesc {
+  color: white;
+  padding: 20px;
+  font-size: 20px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  position: absolute;
+  width: 50%;
+  top: 100px;
+  background-color: black;
+  margin: 10px;
+  opacity: 60%;
+
+  animation: movedesc 1.6s ease-out 0s 1 forwards ;
+}
+
+@keyframes movedesc {
+  from{
+    opacity: 0%;
+    left: -90px;
+  }
+
+  to{
+    opacity: 60%;
+    left: 0px;
+  }
+}
+
+.profiletitle {
+  font-size: 4rem;
+  background-color: black;
+  padding-left: 40px;
+  margin: 0px;
+  animation: moveTitle 0.5s ease-out 0s 1 forwards ;
+
+}
+
+@keyframes moveTitle {
+  from{
+    opacity: 0%;
+  }
+
+  to{
+    opacity: 100%;
+  }
+}
+
+
+.sciName{
+  font-size: 2rem;
+  margin-left: 40px;
+  font-style: italic;
+}
+
+.profileStats{
+  color: white;
+  z-index: 90px;
+  margin-left: 1000px;
+}
+
+.map{
+  width: fit-content;
+  position: relative;
+  height: fit-content;
+  position: relative;
+  background-size: contain;
+}
+
+#map{
+width: 100%;
+position: relative;
+}
+
+.mapmarkers{
+  position: absolute;
+  z-index: 100;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: darkkhaki;
+  top: 100px;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+}
+
+.mapmarkers :hover{
+  width: 80px;
+  border-radius: 40px;
+}
+
+#america{
+  background-color: rgb(48, 114, 51);
+left: 17%;
+top: 40%;
+}
+
+#africa{
+  background-color: rgb(180, 146, 61);
+  top: 60%;
+  right: 38%;
+}
+
+#europe{
+  background-color: rgb(72, 102, 64);
+  right: 38%;
+  top: 40%;
+}
+
+#asia{
+  background-color: white;
+  right: 21%;
+  top: 30%;
+}
+
+
+#austrailia{
+  right: 14%;
+  top: 77%;
+  background-color: rgb(150, 108, 30);
+}
+
+#southAmerica{
+  top: 69%;
+  left: 27%;
+  background-color: green;
+}
+
+#southAsia{
+  background-color: rgb(29, 92, 29);
+  right: 25% ;
+  top: 49%;
+}
+
+#ocean{
+  background-color: rgb(42, 47, 86);
+  left: 40%;
+  top: 60%;
 }

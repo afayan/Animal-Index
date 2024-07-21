@@ -7,7 +7,6 @@ import Topbar from "./Topbar";
 function Home() {
   return (
     <div>
-        <Topbar/>
         <Carousel/>
 
       <h2 className="label">Type</h2>
@@ -69,6 +68,26 @@ function Home() {
       <CategoryCard name={"Arial"} image={"/sky.jpg"} style={{color:"black"}}/>
       </Link>
       </div>
+
+      <h2 className="label">Location</h2>
+
+    <div className="map" style={{
+      backgroundImage:" url('/map.jpg')",
+    }}>
+
+      <img src="/map.jpg" id="map" alt="" />
+
+      <div className="mapmarkers" id="america"></div>
+      <div className="mapmarkers" id="asia"></div>
+      <div className="mapmarkers" id="europe"></div>
+      <div className="mapmarkers" id="africa"></div>
+      <div className="mapmarkers" id="austrailia"></div>
+      <div className="mapmarkers" id="southAmerica"></div>
+      <div className="mapmarkers" id="southAsia"></div>
+      <div className="mapmarkers" id="ocean"></div>
+    </div>
+
+      
 
       <h2 className="label">Body temperature</h2>
       <Link to={"/animals/:warm"} className= "link">
