@@ -7,11 +7,15 @@ function Upload() {
   const [diet, setDiet] = useState("");
   const [desc, setDesc] = useState("");
   const [blood, setBlood] = useState("");
+  const [habitat, sethabitat] = useState("")
+  const [continent, setContinent] = useState("")
   const [image, setFile] = useState(null);
 
   const [prompt, setPrompt] = useState("");
   const aichat = useRef("");
+  const habref = useRef()
   const dietRef = useRef();
+  const continentRef = useRef()
   const cnameRef = useRef()
   const snameref = useRef()
   const typeRef = useRef()
@@ -30,8 +34,11 @@ function Upload() {
       desc: desc,
       blood: blood,
       image: image.name,
+      habitat: habitat,
+      continent: continent
     };
 
+    console.log("data: ", d);
     console.log(d);
     console.log(image.name);
     // image.name = Date.now() + '-' + Math.round(Math.random() * 1E9) + image.name
@@ -83,16 +90,32 @@ function Upload() {
         console.log(data);
         // console.log(dietRef.current);
 
-        // // sname.value = "Carnivore"
+        // sname.value = "Carnivore"
         // console.log(snameref.current);
 
         snameref.current.value = data['Scientific name']
         setSName(s=>data['Scientific name'])
-        // typeRef.current.value = data['Animal category (eg: mammal)']
-        // dietRef.current.value = data['diet (eg: carnivore)']
+        
+        typeRef.current.value = data['type'].trim().replace(/(\r\n|\n|\r)/gm, "");
+        setType(typeRef.current.value)
+        console.log("Type of animal: ",typeRef.current.value);
+        // const dietProxy = data['diet (eg: carnivore)'].toLowerCase().trim().replace(/(\r\n|\n|\r)/gm, "");
+        dietRef.current.value = data['diet (eg: carnivore)'].trim().replace(/(\r\n|\n|\r)/gm, "");
+        setDiet(dietRef.current.value)
         // bloodRef.current.value = data['warm/cold blooded']
+        // setContinent(data['continent'])
+        habref.current.value = data['habitat'].trim()
+        sethabitat(habref.current.value)
+        
+        continentRef.current.value = data['continent'].trim().toLowerCase().replace(/(\r\n|\n|\r)/gm, "");
+        setContinent( data['continent'].trim().toLowerCase().replace(/(\r\n|\n|\r)/gm, ""))
+        // console.log(data['continent'].trim().toLowerCase());
+        // console.log(continentRef.current);
         descRef.current.value = data['description']
-        setDesc(d=>data['description'] )
+        setDesc(d=>data['description'] ) 
+
+        bloodRef.current.value = data['warm/cold blooded'].trim().toLowerCase().replace(/(\r\n|\n|\r)/gm, "");
+        setBlood(bloodRef.current.value)
 
       })
 
@@ -167,8 +190,28 @@ function Upload() {
           <option value="Mammal">Mammal</option>
           <option value="Fish">Fish</option>
           <option value="Insect">Insect</option>
-
+          <option value="Amphibian">Amphibian</option>
+          <option value="Arachnid">Arachnid</option>
+          <option value="Crustacean">Crustacean</option>
+          <option value="Mollusc">Mollusc</option>
           <option value="Reptile">Reptile</option>
+          <option value="Other">Other</option>
+
+        </select>
+
+        <select
+          name="habitat"
+          id=""
+          placeholder="habitat"
+          onChange={(e) => sethabitat((c) => e.target.value)}
+          ref={habref}
+        >
+          <option value="">Select Habitat</option>
+          <option value="Terrestrial">Terrestrial</option>
+          <option value="Arial">Arial</option>
+          <option value="Aquatic">Aquatic</option>
+          <option value="Arboreal">Arboreal</option>
+          <option value="Amphibian">Amphibian</option>
         </select>
 
         <select
@@ -182,6 +225,27 @@ function Upload() {
           <option value="Herbivore">Herbivore</option>
           <option value="Carnivore">Carnivore</option>
           <option value="Omnivore">Omnivore</option>
+        </select>
+
+        <select
+          name="Continent"
+          id=""
+          placeholder="Continent"
+          onChange={(e) => setContinent((c) => e.target.value)}
+          ref={continentRef}
+        >
+          <option value="">Select Continent</option>
+          <option value="worldwide">Worldwide</option>
+          <option value="america">America</option>
+          <option value="africa">Africa</option>
+          <option value="southasia">Asia (South)</option>
+          <option value="northasia">Asia (North)</option>
+          <option value="europe">Europe</option>
+          <option value="australia">Austrailia</option>
+          <option value="antarctica">Antarctica</option>
+          <option value="ocean">Ocean</option>
+
+
         </select>
 
         <textarea
@@ -201,8 +265,9 @@ function Upload() {
           ref={bloodRef}
         >
           <option value="">Select Blood temperature</option>
-          <option value="Warm">Warm</option>
-          <option value="Cold">Cold</option>
+          <option value="warm-blooded">Warm</option>
+          <option value="cold-blooded">Cold</option>
+          <option value="na">Not Applicable</option>
 
           
         </select>

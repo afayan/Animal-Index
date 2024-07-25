@@ -86,7 +86,7 @@ option {
 
 .link {
   background-color: bisque;
-  width: 100%;
+  min-width: 350px;
   height: 200px;
   position: relative;
   border-radius: 10px;
@@ -128,10 +128,19 @@ h1,
   margin-left: 20px;
 }
 
+.label{
+text-align: center;
+background-color: rgb(124, 115, 101);
+margin: 0px;
+padding: 10px;
+}
+
 .cardContainer {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   width: 100%;
+  justify-content: center;
 }
 
 .carousel {
@@ -358,37 +367,42 @@ position: relative;
   width: 30px;
   height: 30px;
   border-radius: 15px;
-  background-color: darkkhaki;
+  background-color: rgb(119, 116, 65);
   top: 100px;
   cursor: pointer;
   transition: all 0.2s ease-in;
 }
 
-.mapmarkers :hover{
-  width: 80px;
-  border-radius: 40px;
+.maplabel{
+  background-color: azure;
+  padding: 6px;
+  position: absolute;
+  transform: translate(30px, -30px );
+  font-size: large;
+  opacity: 0%;
+  transition: all 0.2s ease-in;
+}
+
+.mapmarkers:hover .maplabel{
+opacity: 100%;
 }
 
 #america{
-  background-color: rgb(48, 114, 51);
 left: 17%;
 top: 40%;
 }
 
 #africa{
-  background-color: rgb(180, 146, 61);
   top: 60%;
   right: 38%;
 }
 
 #europe{
-  background-color: rgb(72, 102, 64);
   right: 38%;
   top: 40%;
 }
 
 #asia{
-  background-color: white;
   right: 21%;
   top: 30%;
 }
@@ -397,23 +411,86 @@ top: 40%;
 #austrailia{
   right: 14%;
   top: 77%;
-  background-color: rgb(150, 108, 30);
 }
 
 #southAmerica{
   top: 69%;
   left: 27%;
-  background-color: green;
 }
 
 #southAsia{
-  background-color: rgb(29, 92, 29);
   right: 25% ;
   top: 49%;
 }
 
 #ocean{
-  background-color: rgb(42, 47, 86);
   left: 40%;
   top: 60%;
+}
+
+.animalList{
+  position: relative;
+}
+.bannerDiv{
+  width: 100%;
+  position: relative;
+  top: 70px;
+}
+
+.typeBanner{
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+.bannerText{
+  top: 0px;
+  font-size: 90px;
+  z-index: 990;
+}
+.bannerTextbg{
+  opacity: 70%;
+  height: 200px;
+  background-color: black;
+  padding-left: 20px;
+  padding-top: 0px;
+  padding-right: 100px;
+  padding-bottom: 100px;
+  top: 0px;
+  position: absolute;
+
+  animation: movedesc 1.6s ease-out 0s 1 forwards ;
+
+}
+
+
+.subtext{
+  position: absolute;
+  font-size: 30px;
+  top: 160px;
+  padding: 10px;
+
+  padding-left: 25px;
+  text-wrap: wrap;
+  
+  color: rgb(255, 255, 255);
+  background-color: black;
+  opacity: 60%;
+  right: 0px;
+  left: 0px;
+
+  white-space: pre-wrap;
+  word-wrap: break-word;
+
+  animation: subtextAnim 2s ease-out 0s 1 forwards ;
+}
+
+@keyframes subtextAnim {
+  from{
+    opacity: 0%;
+    top: 200px;
+  }
+  to{
+    opacity: 60%;
+    top: 160px;
+  }
 }

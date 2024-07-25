@@ -46,7 +46,7 @@ function Animal() {
       <pre className='profileDesc'>
 
         
-        <h4>{info[0].blood} Blooded {info[0].diet} {info[0].type}, found in {info[0].habitat }</h4>
+        <h4>{info[0].blood} Blooded {info[0].diet} {info[0].type}, found in {info[0].continent }</h4>
 
         {info[0].description}
       </pre>

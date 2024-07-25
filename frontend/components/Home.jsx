@@ -7,94 +7,143 @@ import Topbar from "./Topbar";
 function Home() {
   return (
     <div>
-        <Carousel/>
+      <Carousel />
 
       <h2 className="label">Type</h2>
 
       <div className="cardContainer">
-        <Link to={"/animals/:birds"} className= "link">
+        <Link to={"/animals/bird"} className="link">
           <CategoryCard name={"Birds"} image={"/bird.webp"} />
         </Link>
 
-        <Link to={"/animals/:mammals"} className= "link">
+        <Link to={"/animals/mammal"} className="link">
           <CategoryCard name={"Mammals"} image={"/mamaml.jpg"} />
         </Link>
 
-        <Link to={"/animals/:fish"} className= "link">
+        <Link to={"/animals/fish"} className="link">
           <CategoryCard name={"Fishes"} image={"/fish.jpg"} />
         </Link>
 
-        <Link to={"/animals/:reptiles"} className= "link">
-        <CategoryCard name={"Reptiles"} image={"/reptile.jpg"} />
+        <Link to={"/animals/reptile"} className="link">
+          <CategoryCard name={"Reptiles"} image={"/reptile.jpg"} />
         </Link>
 
-        <Link to={"/animals/:insect"} className= "link">
+        <Link to={"/animals/insect"} className="link">
           <CategoryCard name={"Insects"} image={"/insect.jpg"} />
         </Link>
 
+        <Link to={"/animals/amphibian"} className="link">
+          <CategoryCard name={"Amphibians"} image={"/amphi.jpg"} />
+        </Link>
+
+        <Link to={"/animals/arachnid"} className="link">
+          <CategoryCard name={"Arachnids"} image={"/arachnid.jpg"} />
+        </Link>
+
+        <Link to={"/animals/crustacean"} className="link">
+          <CategoryCard name={"Crustaceans"} image={"/crab.jpg"} />
+        </Link>
+
+        <Link to={"/animals/mollusc"} className="link">
+          <CategoryCard name={"Molluscs"} image={"/snail.jpg"} />
+        </Link>
+
+        <Link to={"/animals/other"} className="link">
+          <CategoryCard name={"Others"} image={"/worm.jpg"} />
+        </Link>
       </div>
 
       <h2 className="label">Diet</h2>
 
       <div className="cardContainer">
+        <Link to={"/animals/herbivore"} className="link">
+          <CategoryCard
+            name={"Herbivores"}
+            image={"/pexels-davidohboy-8100784.jpg"}
+          />
+        </Link>
 
-      <Link to={"/animals/:herbivore"} className= "link">
+        <Link to={"/animals/carnivore"} className="link">
+          <CategoryCard name={"Carnivores"} image={"/carnivore.jpg"} />
+        </Link>
 
-      <CategoryCard name={"Herbivores"} image={"/pexels-davidohboy-8100784.jpg"} />
-      </Link>
-
-      <Link to={"/animals/:carnivore"} className= "link">
-      <CategoryCard name={"Carnivores"} image={"/carnivore.jpg"} />
-
-      </Link>
-
-      <Link to={"/animals/:omnivores"} className= "link">
-      <CategoryCard name={"Omnivores"} image={"/omni.jpg"} />
-      </Link>
+        <Link to={"/animals/omnivore"} className="link">
+          <CategoryCard name={"Omnivores"} image={"/omni.jpg"} />
+        </Link>
       </div>
 
       <h2 className="label">Habitat</h2>
       <div className="cardContainer">
+        <Link to={"/animals/terrestrial"} className="link">
+          <CategoryCard name={"Terrestrial"} image={"/terr.jpg"} />
+        </Link>
 
-      <Link to={"/animals/:terrestrial"} className= "link">
-      <CategoryCard name={"Terrestrial"} image={"/terr.jpg"} />
-      </Link>
+        <Link to={"/animals/aquatic"} className="link">
+          <CategoryCard name={"Aquatic"} image={"/ocean.jpg"} />
+        </Link>
 
-      <Link to={"/animals/:aquatic"} className= "link">
-      <CategoryCard name={"Aquatic"} image={"/ocean.jpg"} />
-      </Link>
+        <Link to={"/animals/arboreal"} className="link">
+          <CategoryCard name={"Arboreal"} image={"/arboreal.jpg"} />
+        </Link>
 
-      <Link to={"/animals/:arial"} className= "link" >
-      <CategoryCard name={"Arial"} image={"/sky.jpg"} style={{color:"black"}}/>
-      </Link>
+        <Link to={"/animals/aerial"} className="link">
+          <CategoryCard name={"Aerial"} image={"/sky.jpg"} />
+        </Link>
+
+        <Link to={"/animals/amphibian"} className="link">
+          <CategoryCard name={"Amphibian"} image={"/amphi.jpg"} />
+        </Link>
       </div>
 
       <h2 className="label">Location</h2>
 
-    <div className="map" style={{
-      backgroundImage:" url('/map.jpg')",
-    }}>
+      <div
+        className="map"
+        style={{
+          backgroundImage: " url('/map.jpg')",
+        }}
+      >
+        <img src="/map.jpg" id="map" alt="" />
 
-      <img src="/map.jpg" id="map" alt="" />
+        <Link to= {'/animals/america'} className="mapmarkers" id="america">
+          <label className="maplabel">America</label>
+        </Link>
 
-      <div className="mapmarkers" id="america"></div>
-      <div className="mapmarkers" id="asia"></div>
-      <div className="mapmarkers" id="europe"></div>
-      <div className="mapmarkers" id="africa"></div>
-      <div className="mapmarkers" id="austrailia"></div>
-      <div className="mapmarkers" id="southAmerica"></div>
-      <div className="mapmarkers" id="southAsia"></div>
-      <div className="mapmarkers" id="ocean"></div>
-    </div>
+        <Link  to= {'/animals/northasia'} className="mapmarkers" id="asia">
+          <label className="maplabel">Asia (North)</label>
+        </Link>
 
-      
+        <Link  to= {'/animals/europe'} className="mapmarkers" id="europe">
+          <label className="maplabel">Europe</label>
+        </Link>
+
+        <Link  to= {'/animals/africa'} className="mapmarkers" id="africa">
+          <label className="maplabel">Africa</label>
+        </Link>
+
+        <Link  to= {'/animals/austrailia'} className="mapmarkers" id="austrailia">
+          <label className="maplabel">Austrailia</label>
+        </Link>
+
+        <Link  to= {'/animals/southamerica'} className="mapmarkers" id="southAmerica">
+          <label className="maplabel">South America</label>
+        </Link>
+
+        <Link  to= {'/animals/southasia'} className="mapmarkers" id="southAsia">
+          <label className="maplabel">Asia (South)</label>
+        </Link>
+
+        <Link  to= {'/animals/ocean'} className="mapmarkers" id="ocean">
+          <label className="maplabel">Ocean</label>
+        </Link>
+      </div>
 
       <h2 className="label">Body temperature</h2>
-      <Link to={"/animals/:warm"} className= "link">
+      <Link to={"/animals/warm"} className="link">
         <div className="selectTypeButton">Warm blooded</div>
       </Link>
 
-      <Link to={"/animals/:cold"} className= "link">
+      <Link to={"/animals/cold"} className="link">
         <div className="selectTypeButton">Cold blooded</div>
       </Link>
     </div>
