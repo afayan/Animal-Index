@@ -156,12 +156,27 @@ app.post("/api/aifill", async (req, res) => {
     } else if (field === "habitat") {
         prompt = `what is the ${field} of ${cname}?
         Your options are:
-        terrestrial,
+        Terrestrial,
         Aerial,
         Aquatic,
         Arboreal,
         Amphibian,
         Return you response in words only. No sentences. If u dont have a proper answer just reply NA`
+
+    // } else if (field === "Scientific name") {
+    //   prompt = `Just tell me the scientific name of ${cname} only`
+
+
+    } else if (field === "diet (eg: carnivore)") {
+
+      prompt = `what is the ${field} of ${cname}?
+        Your options are:
+        Herbivore,
+        Carnivore,
+        Omnivore,
+        other
+        
+        Return you response in words only. No sentences. If u dont have a proper answer just reply NA`;
 
 
     } else if (field === "type") {
@@ -190,7 +205,7 @@ app.post("/api/aifill", async (req, res) => {
         Antarctica, 
         Ocean(Aquatic with no defined continent), worldwide . Return you response in words only. No sentences. If u dont have a proper answer just reply NA`;
     } else {
-      prompt = `what is the ${field} of ${cname}? Return you response in words only. No sentences. If u dont have a proper answer just reply NA`;
+      prompt = `what is the ${field} of ${cname}? Return you response in words only. No sentences. If u dont have a proper answer just reply NA.`;
     }
 
     console.log(prompt);
@@ -207,7 +222,7 @@ app.post("/api/aifill", async (req, res) => {
     "Scientific name",
     "type",
     "habitat",
-    "Animal category (eg: mammal)",
+    // "Animal category (eg: mammal)",
     "diet (eg: carnivore)",
     "description",
     "warm/cold blooded",
