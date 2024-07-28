@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import '../src/carousel.css'
+import { GrPrevious , GrNext } from "react-icons/gr";
+import "../src/carousel.css";
 
 function Carousel() {
-  
   const [index, setIndex] = useState(0);
+  const [animate, setAnimate] = useState('animate')
   const [carouselData, setCarD] = useState([
     {
       text: "World's Largest Animal Database",
@@ -11,34 +12,81 @@ function Carousel() {
     },
     {
       text: "Add animals to expand the database",
-      image: "/herb.jpg",
+      image: "/carousel2.jpg",
     },
     {
       text: "Open Source",
-      image: "/amphi.jpg",
+      image: "/carousel3.jpg",
     },
-  ])
+    {
+      text: "Everything Wildlife.",
+      image: "/carousel4.jpg",
+    },
+  ]);
   console.log(index);
-  
-  useEffect(()=>{
-    console.log("Index changed");
-  },[index])
+
+  const headings = [
+    '<h1 className={`carText`}>Worlds largest database</h1>',
+    '<h1 className={`carText`}>Worlds largest animals</h1>',
+    '<h1 className={`carText`}>Worlds largest shit</h1>',
+    '<h1 className={`carText`}>Worlds largest geen</h1>',
+  ]
+
+  // useEffect(() => {
+  //   setAnimate('');
+
+  //   setTimeout(()=>{
+  //     setAnimate('animate')
+  //   },20)
+  // }, [index]);
 
   function handleNext() {
-    setIndex(c=> c === carouselData.length - 1? 0 : c + 1 )
+    setIndex((c) => (c === carouselData.length - 1 ? 0 : c + 1));
+    setAnimate('animateOut')
+
+    setTimeout(()=>{
+      setAnimate('animate')
+    },50)
   }
 
   function handlePre() {
-    setIndex(c=> c === 0 ? carouselData.length - 1: c - 1 )
+    setIndex((c) => (c === 0 ? carouselData.length - 1 : c - 1));
+    setAnimate('')
 
+    setAnimate('animateOut')
+
+    setTimeout(()=>{
+      setAnimate('animate')
+    },50)
   }
 
+
+  // setTimeout(() => {
+  //   handleNext()
+  // }, 4000);
+
   return (
-    <div>
-      <h1 className="carText">{carouselData[index].text}</h1>
-      <img className="carousel" src={carouselData[index].image} alt="carousel" />
-      <button className="carouselButtons" id="pre" onClick={()=>handleNext()}>Pre</button>
-      <button className="carouselButtons" id="next" onClick={()=>handlePre()}>Next</button>
+    <div className="cBody">
+
+    <h1 className={`carText ${animate}`}>{carouselData[index].text}</h1>
+
+      <div className="carouselLarge" >
+        {carouselData.map((element) => {
+          return (
+            <>
+              <img style={{translate : `${-100 * index}%`}} className="carousel" src={element.image} alt="carousel" />
+            </>
+          );
+        })}
+      </div>
+
+      <button className="carouselButtons" id="next" onClick={() => handleNext()}>
+      <GrNext />
+
+      </button>
+      <button className="carouselButtons" id="pre" onClick={() => handlePre()}>
+      <GrPrevious />
+      </button>
     </div>
   );
 }

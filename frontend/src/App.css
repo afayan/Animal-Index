@@ -143,31 +143,7 @@ padding: 10px;
   justify-content: center;
 }
 
-.carousel {
-  height: 850px;
-  width: 100%;
-  object-fit: cover;
 
-}
-
-.carText {
-  position: absolute;
-  width: 1400px;
-  font-size: 5rem;
-  animation: showText 0.8s ease-out 0s 1 forwards;
-}
-
-@keyframes showText {
-  from {
-    opacity: 0;
-    transform: translate(80px, 400px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translate(80px, 300px);
-  }
-}
 
 .label {
   color: aliceblue;
