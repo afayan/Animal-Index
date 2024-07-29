@@ -100,7 +100,7 @@ app.post("/api/uploadImage", upload.single("uploadImage"), (req, res) => {
 app.post("/api/search", (req, res) => {
   const imageUrl = "http://localhost:3000/uploads/";
   const query = "%" + req.body.query + "%";
-  console.log(query);
+  // console.log(query);
 
   const s =
     "select id, common_name, sci_name, concat( 'http://localhost:3000/uploads/', image) as imageURL from animal_data where common_name like ? or sci_name like ? ;";
@@ -109,7 +109,7 @@ app.post("/api/search", (req, res) => {
     if (err) {
       console.log(err);
     }
-    console.log(result);
+    // console.log(result);
     console.log("next");
     res.json(result);
   });
@@ -118,6 +118,8 @@ app.post("/api/search", (req, res) => {
 app.post("/api/aisearch", (req, res) => {
   const data = req.body.prompt;
   // console.log(data);
+
+ 
 
   async function run() {
     // The Gemini 1.5 models are versatile and work with both text-only and multimodal prompts
@@ -143,6 +145,12 @@ app.post("/api/aifill", async (req, res) => {
   console.log(cname);
 
   var details = {};
+
+  try {
+    
+  
+    
+ 
 
   async function run(field) {
     // The Gemini 1.5 models are versatile and work with both text-only and multimodal prompts
@@ -208,13 +216,13 @@ app.post("/api/aifill", async (req, res) => {
       prompt = `what is the ${field} of ${cname}? Return you response in words only. No sentences. If u dont have a proper answer just reply NA.`;
     }
 
-    console.log(prompt);
+    // console.log(prompt);
 
     const result = await model.generateContent(prompt);
     const response = await result.response;
     const text = response.text();
 
-    console.log(text);
+    // console.log(text);
     details[field] = text;
   }
 
@@ -231,7 +239,12 @@ app.post("/api/aifill", async (req, res) => {
 
   await Promise.all(dArray.map((field) => run(field)));
 
-  console.log(details);
+  // console.log(details);
+} catch (error) {
+    console.log(error);
+}
+
+  //here ends try catch block
   res.send(JSON.stringify(details)); // Send the details object as a response
 });
 
@@ -266,7 +279,7 @@ app.get("/api/getByType/:type", (req, res) => {
       console.log(err);
       return err;
     }
-    console.log(resp);
+    // console.log(resp);
     res.send(resp);
   });
 });

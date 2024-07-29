@@ -16,15 +16,14 @@ function App() {
 
   return (
     <>
-        <Topbar/>
-
-      <Routes>
-        <Route path="/" element={<Home/>} />
-        <Route path="/animals/:type" element={<AnimalsList />} />
-        <Route path="/uploads" element={<Upload/>} />
-        <Route path="/search" element = {<Searchpage/>} />
-        <Route path="/animal/:id" element = {<Animal/>} />
-      </Routes>
+      <Topbar/>
+        <Routes>
+          <Route path="/" element={<Home/>} />
+          <Route path="/animals/:type" element={<AnimalsList />} />
+          <Route path="/uploads" element={<Upload/>} />
+          <Route path="/search" element = {<Searchpage/>} />
+          <Route path="/animal/:id" element = {<Animal/>} />
+        </Routes>
     </>
   );
 }

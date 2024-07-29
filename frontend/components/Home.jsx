@@ -9,8 +9,7 @@ function Home() {
     <div>
       <Carousel />
 
-      <h2 className="label">Type</h2>
-
+      <h2 className="label" id="typeBanner">Type</h2>
       <div className="cardContainer">
         <Link to={"/animals/bird"} className="link">
           <CategoryCard name={"Birds"} image={"/bird.webp"} />
@@ -53,7 +52,7 @@ function Home() {
         </Link>
       </div>
 
-      <h2 className="label">Diet</h2>
+      <h2 className="label" id="diet">Diet</h2>
 
       <div className="cardContainer">
         <Link to={"/animals/herbivore"} className="link">
@@ -72,7 +71,7 @@ function Home() {
         </Link>
       </div>
 
-      <h2 className="label">Habitat</h2>
+      <h2 className="label" id="habitat">Habitat</h2>
       <div className="cardContainer">
         <Link to={"/animals/terrestrial"} className="link">
           <CategoryCard name={"Terrestrial"} image={"/terr.jpg"} />
@@ -95,7 +94,7 @@ function Home() {
         </Link>
       </div>
 
-      <h2 className="label">Location</h2>
+      <h2 className="label" id="location">Location</h2>
 
       <div
         className="map"
@@ -138,14 +137,17 @@ function Home() {
         </Link>
       </div>
 
-      <h2 className="label">Body temperature</h2>
-      <Link to={"/animals/warm"} className="link">
-        <div className="selectTypeButton">Warm blooded</div>
-      </Link>
+      <h2 className="label" id="bloodtemp">Body temperature</h2>
+      <div className="cardContainer">
 
-      <Link to={"/animals/cold"} className="link">
-        <div className="selectTypeButton">Cold blooded</div>
-      </Link>
+        <Link to={"/animals/warm"} className="link">
+        <CategoryCard name={"Warm Blooded"} image={"/amphi.jpg"} />
+        </Link>
+
+        <Link to={"/animals/cold"} className="link">
+        <CategoryCard name={"Cold Blooded"} image={"/amphi.jpg"} />
+        </Link>
+      </div>
     </div>
   );
 }

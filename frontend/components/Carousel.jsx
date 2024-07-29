@@ -3,6 +3,8 @@ import { GrPrevious , GrNext } from "react-icons/gr";
 import "../src/carousel.css";
 
 function Carousel() {
+
+ 
   const [index, setIndex] = useState(0);
   const [animate, setAnimate] = useState('animate')
   const [carouselData, setCarD] = useState([
@@ -42,10 +44,10 @@ function Carousel() {
 
   function handleNext() {
     setIndex((c) => (c === carouselData.length - 1 ? 0 : c + 1));
-    setAnimate('animateOut')
+    setAnimate(a=>'animateOut')
 
     setTimeout(()=>{
-      setAnimate('animate')
+      setAnimate(a=>'animate')
     },50)
   }
 
@@ -53,17 +55,15 @@ function Carousel() {
     setIndex((c) => (c === 0 ? carouselData.length - 1 : c - 1));
     setAnimate('')
 
-    setAnimate('animateOut')
+    setAnimate(a=>'animateOut')
 
     setTimeout(()=>{
-      setAnimate('animate')
+      setAnimate(a=>'animate')
     },50)
   }
 
 
-  // setTimeout(() => {
-  //   handleNext()
-  // }, 4000);
+
 
   return (
     <div className="cBody">
@@ -74,7 +74,7 @@ function Carousel() {
         {carouselData.map((element) => {
           return (
             <>
-              <img style={{translate : `${-100 * index}%`}} className="carousel" src={element.image} alt="carousel" />
+              <img key={element.text} style={{translate : `${-100 * index}%`}} className="carousel" src={element.image} alt="carousel" />
             </>
           );
         })}

@@ -117,6 +117,7 @@ function Upload() {
         bloodRef.current.value = data['warm/cold blooded'].trim().toLowerCase().replace(/(\r\n|\n|\r)/gm, "");
         setBlood(bloodRef.current.value)
 
+        aichat.current.innerHTML = data['Scientific name'] +"\n"+ data['diet (eg: carnivore)'] + data['habitat'] + data['continent']
       })
 
       //here work
