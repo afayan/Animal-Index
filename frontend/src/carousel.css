@@ -1,0 +1,100 @@
+@keyframes showText {
+  from {
+    opacity: 0;
+    transform: translate(0px, 100px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+}
+
+@keyframes hideText {
+  from {
+    opacity: 0.5;
+    transform: translate(0px, 0px);
+  }
+  
+  to {
+    opacity: 0;
+    transform: translate(0px, 100px);
+  }
+}
+
+.headerContainer{
+  display: flex;
+  object-fit: cover;
+  overflow: hidden;
+  position: absolute;
+}
+
+.carouselButtons {
+  position: absolute;
+  z-index: 2000;
+  top: 690px;
+  width: 50px;
+  border-radius: 25px;
+  height: 50px;
+  border: none;
+  opacity: 50%;
+  cursor: pointer;
+  color:  black
+}
+
+.carousel {
+  object-fit: cover;
+  width: 100%;
+  height: 900px;
+  display: block;
+  flex-shrink: 0;
+  flex-grow: 0;
+  z-index: -1;
+  /* from the video */
+  transition: translate ease-in-out 1s;
+  
+}
+
+.carText {
+  overflow: hidden;
+  position: absolute;
+  width: 60%;
+  padding-right: 3000px;
+  height: max-content;
+  top: 190px;
+  left: 0px;
+  margin: 0pc;
+  padding-left: 10%;
+  font-size: 5rem;
+  background-color: black;
+  background: rgba(0, 0, 0, 0.3) ;
+}
+
+.carText.animate{
+  animation: showText 0.4s ease-out 0s 1 forwards;
+}
+
+.carText.animateOut{
+  animation: hideText 0.4s ease-out 0s 1 backwards;
+}
+
+.carouselLarge {
+  display: flex;
+  object-fit: cover;
+  overflow: hidden;
+  /* margin-bottom: -120px; */
+}
+
+.cBody {
+  width: 100%;
+  position: relative;
+  overflow-x: hidden;
+}
+
+#next {
+  right: 200px;
+}
+
+#pre {
+  left: 200px;
+}
